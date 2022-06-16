@@ -8,11 +8,11 @@ public class MouseScript : MonoBehaviour
     public float MouseSensitivity = 900f;
 
     public Transform playerBody;
-
     float xRotation = 0f;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
+
     }
 
     void Update()
