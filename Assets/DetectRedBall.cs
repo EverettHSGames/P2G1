@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class DetectRedBall : MonoBehaviour
 {
     public GameObject secondLevel;
     public GameObject player;
     public GameObject secondLevelSpawn;
     public GameObject thirdlevelspawn;
-
+    public Canvas canvas;
+    public GameObject SecretWall;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class DetectRedBall : MonoBehaviour
                 {
                     Debug.Log("Clicked Red Button");
                     secondLevel.SetActive(true);
-                    player.transform.position = secondLevelSpawn.transform.position;
+                    secondLevelSpawn.SetActive(false);
                 }
             }
             if (hit.transform.name == "RedButton2")
@@ -38,10 +39,26 @@ public class DetectRedBall : MonoBehaviour
                 {
                     Debug.Log("Clicked Red Button");
                     secondLevel.SetActive(true);
-                    player.transform.position = thirdlevelspawn.transform.position;
+                    thirdlevelspawn.SetActive(false);
                 }
             }
-          
+            if (hit.transform.name == "RedButton3")
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("Clicked Red Button");
+                    SecretWall.SetActive(false);
+
+                }
+            }
+            if (hit.transform.name == "RedButton4")
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("Clicked Red Button");
+                    canvas.gameObject.SetActive(true);
+                }
+            }
         }
 
 
